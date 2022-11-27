@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import User from './interfaces/User';
+import { MainPage } from './components/MainPage/MainPage';
+
 
 function App() {
+
+  const [currentUser, setCurrentUser] = React.useState<User | null>(null);
   return (
     <div>
-
+      <MainPage user={currentUser} />
     </div>
   );
 }
