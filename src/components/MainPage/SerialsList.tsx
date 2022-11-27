@@ -1,5 +1,6 @@
 import React from 'react'
 import Serial from '../../interfaces/Serial';
+import { Filter } from './Filter';
 import { SerialItem } from './SerialItem';
 
 async function getSerialsFromApi() {
@@ -10,6 +11,7 @@ async function getSerialsFromApi() {
 export const SerialsList: React.FC = () => {
 
     const [serials, setSerials] = React.useState<Serial[]>([]);
+    const [serialsCopy, setSerialsCopy] = React.useState<Serial[]>([]);
     React.useEffect(() => {
         getSerialsFromApi().then((res) => {
             let test: Serial[] = res.map((serial: any) => {
@@ -20,21 +22,28 @@ export const SerialsList: React.FC = () => {
                     image: serial.image.medium,
                     status: serial.status,
                     genres: serial.genres,
-                    rating: serial.rating.average
+                    rating: serial.rating.average,
+                    premiered: serial.premiered
                 }
             })
 
             setSerials(test)
+            setSerialsCopy(test)
         })
     }, [])
 
+    const [searchTerm, setSearchTerm] = React.useState('')
+
     React.useEffect(() => {
-        console.log(serials)
-    }, [serials])
+        let data = serials.filter((serial) => serial.name.includes(searchTerm))
+
+        setSerialsCopy(data)
+    }, [searchTerm])
 
     return (
         <>
-            {serials.map((serial, index) => (<SerialItem key = {index + 1} serial = {serial}/>))}
+            <Filter onChange={setSearchTerm} />
+            {serialsCopy.map((serial, index) => (<SerialItem key={index + 1} serial={serial} />))}
         </>
     )
 }
