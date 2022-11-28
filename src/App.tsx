@@ -8,7 +8,7 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState<User | null>(null);
   return (
     <div>
-      <MainPage user={currentUser} />
+      <MainPage user={currentUser} setCurrentUser = {setCurrentUser} />
     </div>
   );
 }

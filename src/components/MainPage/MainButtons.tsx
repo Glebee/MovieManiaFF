@@ -1,15 +1,46 @@
 import React from 'react';
+import Serial from '../../interfaces/Serial';
+import User from '../../interfaces/User';
 
-export const MainButtons: React.FC = () => {
-    return (<div className="mainButtons">
-        <div style={{display: 'flex'}}>
+export const MainButtons: React.FC<{ user: User | null,  setSerialsCopy: any, serials: Serial[], setActiveLoginModal: any,
+setCurrentUser: any }> 
+= ({ user, setSerialsCopy, serials, setActiveLoginModal, setCurrentUser }) => {
+
+    return (user === null) ? (<div>
+        <div>
             лого
         </div>
         <div>
-            <button onClick={(e) => console.log("Main")}> Main </button>
+            <button onClick={() => {
+                //main button
+                setSerialsCopy(serials);
+            }}> Main </button>
         </div>
         <div>
-            <button onClick={(e) => console.log("BookMarks")}>Bookmarks </button>
+            <button onClick = {() => setActiveLoginModal(true)
+                }>
+                Login
+            </button>
         </div>
-    </div>);
+    </div>) : (<div>
+        <div>
+            лого
+        </div>
+        <div>
+            <button onClick={() => {
+                //main button
+                setSerialsCopy(serials);
+            }}> Main </button>
+        </div>
+        <div>
+            <button>
+                BookMarks
+            </button>
+        </div>
+        <div>
+            <button onClick = {() => setCurrentUser(null)}>
+                Logout
+            </button>
+        </div>
+    </div>)
 }

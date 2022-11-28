@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "mail": "tronenko@mail.ru",
+      "password": "password",
+      "serials": []
+    },
+    {
+      "mail": "test@mail.ru",
+      "password": "password",
+      "serials": [],
+      "id": 2
+    }
+  ]
+}
