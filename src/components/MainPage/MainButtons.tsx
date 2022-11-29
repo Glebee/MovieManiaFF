@@ -12,7 +12,6 @@ setCurrentUser: any }>
         </div>
         <div>
             <button onClick={() => {
-                //main button
                 setSerialsCopy(serials);
             }}> Main </button>
         </div>
@@ -33,7 +32,7 @@ setCurrentUser: any }>
             }}> Main </button>
         </div>
         <div>
-            <button>
+            <button onClick={() => setSerialsCopy(user.serials)}>
                 BookMarks
             </button>
         </div>

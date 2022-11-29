@@ -8,8 +8,8 @@ async function getSerialsFromApi() {
     return await response.json();
 }
 
-export const SerialsList: React.FC<{ setSerials: any, setSerialsCopy: any, serials: Serial[], serialsCopy: Serial[] }>
-    = ({ setSerials, setSerialsCopy, serials, serialsCopy }) => {
+export const SerialsList: React.FC<{ setSerials: any, setSerialsCopy: any, serials: Serial[], serialsCopy: Serial[], setSelectedSerial: any, setActiveCard: any }>
+    = ({ setSerials, setSerialsCopy, serials, serialsCopy, setSelectedSerial, setActiveCard}) => {
 
         React.useEffect(() => {
             getSerialsFromApi().then((res) => {
@@ -42,7 +42,7 @@ export const SerialsList: React.FC<{ setSerials: any, setSerialsCopy: any, seria
         return (
             <>
                 <Filter onChange={setSearchTerm} />
-                {serialsCopy.map((serial, index) => (<SerialItem key={index + 1} serial={serial} />))}
+                {serialsCopy.map((serial, index) => (<SerialItem key={index + 1} serial={serial} setSelectedSerial = {setSelectedSerial} setActiveCard = {setActiveCard} />))}
             </>
         )
     }
