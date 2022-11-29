@@ -4,8 +4,8 @@ export const SerialCard: React.FC<{ activeSerial: Serial | null }> = ({ activeSe
 
     return (
         <div>
+            {activeSerial?.summary}
             <span>{activeSerial?.name}</span>
-            <span>{activeSerial?.description}</span>
             <span>premiered: {activeSerial?.premiered}</span>
             <span>status: {activeSerial?.status}</span>
             <span>Genres: {activeSerial?.genres}</span>

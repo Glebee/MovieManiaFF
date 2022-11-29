@@ -1,6 +1,6 @@
 interface Serial{
     name: string, 
-    description: string,
+    summary: string,
     image: string,
     premiered: number,
     status: string,

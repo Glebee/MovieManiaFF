@@ -20,11 +20,28 @@ export const MainPage: React.FC<{ user: User | null, setCurrentUser: any }> = ({
     const [activeSerial, setActiveSerial] = React.useState<Serial | null>(null)
 
     return (<div>
-        <Header user={user} setSerialsCopy={setSerialsCopy} serials={serials} setActiveLoginModal={setActiveLoginModal} setCurrentUser={setCurrentUser} />
-        <SerialsList setSerials={setSerials} setSerialsCopy={setSerialsCopy} serials={serials} serialsCopy={serialsCopy} setActiveCard={setActiveSerialCardModal} setSelectedSerial={setActiveSerial} />
+        <Header user={user}
+            setSerialsCopy={setSerialsCopy}
+            serials={serials}
+            setActiveLoginModal={setActiveLoginModal}
+            setCurrentUser={setCurrentUser} />
+            
+        <SerialsList user={user}
+            setSerials={setSerials}
+            setSerialsCopy={setSerialsCopy}
+            serials={serials}
+            serialsCopy={serialsCopy}
+            setActiveCard={setActiveSerialCardModal}
+            setSelectedSerial={setActiveSerial}
+            setCurrentUser={setCurrentUser} />
 
         <Modal active={activeLoginModal} setActive={setActiveLoginModal}>
-            <Authorization currentLogin={currentLogin} setCurrentLogin={setCurrentLogin} currentPassword={currentPassword} setCurrentPassword={setCurrentPassword} setActiveLoginModal={setActiveLoginModal} setCurrentUser={setCurrentUser} />
+            <Authorization currentLogin={currentLogin}
+                setCurrentLogin={setCurrentLogin}
+                currentPassword={currentPassword}
+                setCurrentPassword={setCurrentPassword}
+                setActiveLoginModal={setActiveLoginModal}
+                setCurrentUser={setCurrentUser} />
         </Modal>
 
         <Modal active={activeSerialCardModal} setActive={setActiveSerialCardModal}>
