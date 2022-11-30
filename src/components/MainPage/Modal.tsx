@@ -1,5 +1,5 @@
 import React from 'react';
-import './Modal.css'
+import '../../styles/MainPage/Modal.scss'
 
 export const Modal : React.FC<{active : boolean , setActive : any, children: any}> = ({active, setActive, children}) => {
     return (<div>

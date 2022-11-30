@@ -1,7 +1,7 @@
 import Serial from "../../interfaces/Serial"
 import User from "../../interfaces/User"
 import axios from 'axios'
-import './SerialCard.css'
+import '../../styles/MainPage/SerialItem.scss'
 
 function handleUnfollowButton(user: User, serial: Serial, setCurrentUser: any) {
     axios({
@@ -31,7 +31,7 @@ function handleFollowButton(user: User, serial: Serial, setCurrentUser: any){
 
 export const SerialItem: React.FC<{ user: User | null, serial: Serial, setSelectedSerial: any, setActiveCard: any, setCurrentUser: any }>
     = ({ user, serial, setSelectedSerial, setActiveCard, setCurrentUser }) => {
-        return (<div>
+        return (<div className="card">
             <img src={serial.image} className="image" onClick={() => {
                 setActiveCard(true)
 

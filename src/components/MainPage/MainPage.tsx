@@ -6,6 +6,7 @@ import { SerialsList } from './SerialsList';
 import Serial from '../../interfaces/Serial';
 import { SerialCard } from '../Card/SerialCard'
 import { Authorization } from '../Authorization/Authorization';
+import '../../styles/MainPage/mainPage.scss'
 
 export const MainPage: React.FC<{ user: User | null, setCurrentUser: any }> = ({ user, setCurrentUser }) => {
     const [activeLoginModal, setActiveLoginModal] = React.useState(false)
@@ -19,7 +20,7 @@ export const MainPage: React.FC<{ user: User | null, setCurrentUser: any }> = ({
 
     const [activeSerial, setActiveSerial] = React.useState<Serial | null>(null)
 
-    return (<div>
+    return (<div className='mainPage'>
         <Header user={user}
             setSerialsCopy={setSerialsCopy}
             serials={serials}

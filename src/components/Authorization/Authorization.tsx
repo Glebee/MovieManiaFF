@@ -1,5 +1,6 @@
 import axios from "axios";
 import User from "../../interfaces/User";
+import '../../styles/Authorization/authorization.scss'
 
 function handleLogInButton(mail: string, password: string, setActiveLogin: any, setCurrentPassword: any, setCurrentUser: any) {
 
@@ -9,7 +10,7 @@ function handleLogInButton(mail: string, password: string, setActiveLogin: any, 
     }).then((users) => {
         let user = users.data.find((user: User) => user.mail === mail && user.password === password);
         if (user === undefined) {
-            alert("Неверное имя пользователя или пароль!")
+            alert("Wrong name or password!")
             setCurrentPassword('')
         }
         else {
@@ -48,36 +49,34 @@ function handleRegisterButton(e: any, mail: string, password: string, setActiveL
 export const Authorization: React.FC<
 {currentLogin: string, setCurrentLogin: any, currentPassword: string, setCurrentPassword: any, setActiveLoginModal: any, setCurrentUser: any}> 
 = ({currentLogin, setCurrentLogin, currentPassword, setCurrentPassword, setActiveLoginModal, setCurrentUser})=>{
-    return (<div>
+    return (<div className="authorization">
         <form className="loginForm" onSubmit={(e) => { e.preventDefault() }}>
-                <h2>Hello Stranger</h2>
-                <div>
+                <h2>Hello Stranger!</h2>
+                <div className="inputsAndButtons">
+                    <p>Please log in</p>
                     <input
                         className=""
                         type="text"
-                        placeholder="Логин"
+                        placeholder="login"
                         onChange={(e) => setCurrentLogin(e.target.value)}
                         value={currentLogin}
                         required
                     />
-                </div>
-                <div>
                     <input
                         className="loginFormInput"
                         type="password"
-                        placeholder="Пароль"
+                        placeholder="password"
                         onChange={(e) => setCurrentPassword(e.target.value)}
                         value={currentPassword}
                         required
                     />
-                </div>
-                <div>
-                    <button className="blackBtn" type="submit" onClick={(e) =>
+                    <button className="Btn" type="submit" onClick={(e) =>
                         handleLogInButton(currentLogin, currentPassword, setActiveLoginModal, setCurrentPassword, setCurrentUser)}>
-                        Войти
+                        Login
                     </button>
-                    <button className="blackBtn" type="submit" onClick={(e) => handleRegisterButton(e, currentLogin, currentPassword, setActiveLoginModal, setCurrentUser)}>
-                        Зарегистрироваться
+                    
+                    <button className="Btn" type="submit" onClick={(e) => handleRegisterButton(e, currentLogin, currentPassword, setActiveLoginModal, setCurrentUser)}>
+                        Sign up
                     </button>
                 </div>
             </form>

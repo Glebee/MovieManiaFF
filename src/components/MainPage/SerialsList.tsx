@@ -3,6 +3,7 @@ import Serial from '../../interfaces/Serial';
 import User from '../../interfaces/User';
 import { Filter } from './Filter';
 import { SerialItem } from './SerialItem';
+import '../../styles/MainPage/SerialsList.scss'
 
 async function getSerialsFromApi() {
     let response = await fetch("https://api.tvmaze.com/shows")
@@ -22,7 +23,8 @@ export const SerialsList: React.FC<{ user: User | null, setSerials: any, setSeri
                         status: serial.status,
                         genres: serial.genres,
                         rating: serial.rating.average,
-                        premiered: serial.premiered
+                        premiered: serial.premiered,
+                        bigImg: serial.image.original,
                     }
                 })
 
@@ -40,9 +42,9 @@ export const SerialsList: React.FC<{ user: User | null, setSerials: any, setSeri
         }, [searchTerm])
 
         return (
-            <>
+            <div className='SerialsList'>
                 <Filter onChange={setSearchTerm} />
                 {serialsCopy.map((serial, index) => (<SerialItem key={index + 1} user={user} serial={serial} setSelectedSerial={setSelectedSerial} setActiveCard={setActiveCard} setCurrentUser = {setCurrentUser}/>))}
-            </>
+            </div>
         )
     }

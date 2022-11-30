@@ -1,6 +1,8 @@
 import React from 'react';
 import Serial from '../../interfaces/Serial';
 import User from '../../interfaces/User';
+import '../../styles/MainPage/MainButtons.scss'
+import logo from '../../imgs/logo.png'
 
 export const MainButtons: React.FC<{
     user: User | null, setSerialsCopy: any, serials: Serial[], setActiveLoginModal: any,
@@ -8,37 +10,26 @@ export const MainButtons: React.FC<{
 }>
     = ({ user, setSerialsCopy, serials, setActiveLoginModal, setCurrentUser }) => {
 
-        return (user === null) ? (<div>
-            <div>
-                лого
-            </div>
-            <div>
-                <button onClick={() => {
-                    setSerialsCopy(serials);
-                }}> Main </button>
-            </div>
-            <div>
-                <button onClick={() => setActiveLoginModal(true)
-                }>
+        return (user === null) ? (<div className='MainButtons'>
+            <img src={logo} width='120px' height='50px' alt='logo'/>
+            <div className='buttons'>
+                <button onClick={() => {setSerialsCopy(serials);}}>
+                    Main
+                </button>
+                <button onClick={() => setActiveLoginModal(true)}>
                     Login
                 </button>
             </div>
-        </div>) : (<div>
-            <div>
-                лого
-            </div>
-            <div>
+        </div>) : (<div className='MainButtons'>
+            <img src={logo} width='120px' height='50px' alt='logo'/>
+            <div className='buttons'>
                 <button onClick={() => {
                     //main button
                     setSerialsCopy(serials);
                 }}> Main </button>
-            </div>
-            <div>
                 <button onClick={() => setSerialsCopy(user.serials)}>
-                    BookMarks
+                    Bookmarks
                 </button>
-            </div>
-            <div>
                 <button onClick={() => {
                     setCurrentUser(null)
                     setSerialsCopy(serials)

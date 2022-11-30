@@ -6,7 +6,8 @@ interface Serial{
     status: string,
     genres: string,
     rating: number,
-    timeDelay: string
+    timeDelay: string,
+    bigImg:string,
 }
 
 export default Serial
