@@ -25,42 +25,43 @@
       h3{
          font-size: 25px;
       }
-      button {
-         color: white;
-         text-decoration: none;
-         background: rgba(174,174,224, 0.5);
-         width: 200px;
-         height: 40px;
-        margin: 20px 20px;
-         border-radius: 15px;
-         display: flex;
-         align-items: center;
-         justify-content: space-around;
-         transition: 0.5s;
-         .follow {
-            color: white;
-            text-decoration: none;
-            // line-height: normal;
-            // display: inline-block;
-            // vertical-align: middle;
-            text-transform: uppercase;
-            text-shadow:  0 0 0.2em black;
-            transition: 0.5s;
-         }
-      }
+   }
+   .follow {
+      color: white;
+      text-decoration: none;
+      background: rgba(174, 174, 224, 0.5);
+      width: 200px;
+      height: 40px;
+      margin: 20px 20px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      transition: 0.5s;
+   }
+   .follow:hover {
+      background: rgba(174, 174, 224, 1);
+      text-shadow:1px 1px 2px #aec6e0, 0 0 1em blue, 0 0 0.2em black;
+   }
+
+   .unfollow {
+      color: white;
+      text-decoration: none;
+      background: rgba(236, 109, 143, 0.5);
+      width: 200px;
+      height: 40px;
+      margin: 20px 20px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      transition: 0.5s;
+   }
+   .unfollow:hover {
+      background: rgba(236, 109, 143, 1);
+      text-shadow:1px 1px 2px #aec6e0, 0 0 1em red, 0 0 0.2em black;
    }
    
-   .image{
-      width: 210px;
-      height: 295px;
-   }
-   button:hover {
-      background: #e8e8f6;
-      .follow {
-         text-shadow:1px 1px 2px #aec6e0, 0 0 1em blue, 0 0 0.2em black;
-      }
-   }
-  
 }
 .card:hover {
    transform: translateY(-10px);

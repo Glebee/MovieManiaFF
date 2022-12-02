@@ -13,24 +13,44 @@ export const MainButtons: React.FC<{
         return (user === null) ? (<div className='MainButtons'>
             <img src={logo} width='120px' height='50px' alt='logo'/>
             <div className='buttons'>
-                <button onClick={() => {setSerialsCopy(serials);}}>
+                <button className='mainBtn' onClick={(e) => {
+                    const trg = e.target as HTMLElement;
+                    console.log(e.target);
+                    trg.classList.add("mainBtn");
+                    document.querySelector('.bookBtn')?.classList.remove('bookBtn');
+                    {setSerialsCopy(serials);}}}>
                     Main
                 </button>
-                <button onClick={() => setActiveLoginModal(true)}>
+                <button className='log' onClick={(e ) => {
+                    const trg = e.target as HTMLElement;
+                    console.log(e.target);
+                    trg.classList.remove("bookBtn");
+                    setActiveLoginModal(true);}}>
                     Login
                 </button>
             </div>
         </div>) : (<div className='MainButtons'>
             <img src={logo} width='120px' height='50px' alt='logo'/>
             <div className='buttons'>
-                <button onClick={() => {
+                <button className='mainBtn' onClick={(e) => {
                     //main button
+                    const trg = e.target as HTMLElement;
+                    console.log(e.target);
+                    trg.classList.add("mainBtn");
+                    document.querySelector('.bookBtn')?.classList.remove('bookBtn');
                     setSerialsCopy(serials);
                 }}> Main </button>
-                <button onClick={() => setSerialsCopy(user.serials)}>
-                    Bookmarks
-                </button>
+                <button onClick={(e) => {
+                    const trg = e.target as HTMLElement;
+                    console.log(e.target);
+                    trg.classList.add("bookBtn");
+                    document.querySelector('.mainBtn')?.classList.remove('mainBtn');
+                    setSerialsCopy(user.serials);
+                    return (<p>{user.mail}</p>);
+                    }}> Bookmarks </button>
                 <button onClick={() => {
+                    let trg =  document.querySelector('.buttons')?.firstChild as HTMLElement;
+                    trg.classList.add('mainBtn');
                     setCurrentUser(null)
                     setSerialsCopy(serials)
                 }

@@ -42,8 +42,8 @@ export const SerialItem: React.FC<{ user: User | null, serial: Serial, setSelect
                 <span className="price">{serial.premiered}</span>
                 {(user === null)
                     ? (<></>) : (user.serials.map(s => s.name).includes(serial.name)
-                        ? <button onClick={() => handleUnfollowButton(user, serial, setCurrentUser)}>unfollow</button>
-                        : <button onClick={() => handleFollowButton(user, serial, setCurrentUser)}>follow</button>)}
+                        ? <button className="unfollow" onClick={() => handleUnfollowButton(user, serial, setCurrentUser)}>unfollow</button>
+                        : <button className="follow" onClick={() => handleFollowButton(user, serial, setCurrentUser)}>follow</button>)}
             </div>
         </div>)
     }
